@@ -49,9 +49,24 @@ export function FlightPath() {
   const lineHeight = useTransform(scrollYProgress, [0.1, 0.9], ['0%', '100%']);
 
   return (
-    <section id="process" className="py-24 bg-slate-50 relative overflow-hidden" ref={containerRef}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+    <section id="process" className="py-16 bg-slate-50 relative overflow-hidden" ref={containerRef}>
+      {/* Background Decor */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+         <motion.div 
+           animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+           className="absolute top-20 left-10 w-96 h-96 bg-teal-100 rounded-full blur-3xl opacity-30 mix-blend-multiply"
+         />
+         <motion.div 
+           animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
+           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+           className="absolute bottom-40 right-10 w-[500px] h-[500px] bg-slate-200 rounded-full blur-3xl opacity-30 mix-blend-multiply"
+         />
+         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
            <h2 className="text-3xl md:text-5xl font-bold font-fraunces text-midnight-slate mb-4">The Revenue Flight Path</h2>
            <p className="text-slate-600 max-w-2xl mx-auto text-lg">
              A precision-engineered workflow designed to move stuck claims from "Denied" to "Paid".
@@ -67,7 +82,7 @@ export function FlightPath() {
              />
           </div>
 
-          <div className="space-y-24">
+          <div className="space-y-12">
             {steps.map((step, index) => {
               const isEven = index % 2 === 0;
               return (

@@ -10,14 +10,6 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const navLinks = [
     { name: 'Services', href: '#services' },
     { name: 'The Process', href: '#process' },
@@ -28,8 +20,7 @@ export function Navbar() {
   return (
     <nav
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-transparent',
-        isScrolled ? 'bg-white/80 backdrop-blur-md h-16 border-slate-200 shadow-sm' : 'bg-transparent h-24'
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-slate-200 shadow-sm bg-white/90 backdrop-blur-md h-20'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
@@ -39,7 +30,7 @@ export function Navbar() {
             <span className="relative z-10">JC</span>
             <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </div>
-          <span className={cn("font-fraunces font-bold text-xl tracking-tight", isScrolled ? "text-slate-900" : "text-slate-900")}>
+          <span className="font-fraunces font-bold text-xl tracking-tight text-slate-900">
             JC Arbitrations
           </span>
         </Link>
