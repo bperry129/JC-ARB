@@ -26,8 +26,20 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
         {/* LOGO */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-gradient-to-br from-midnight-slate to-slate-800 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:scale-105 transition-transform duration-300 ring-1 ring-white/20">
-            <span className="relative z-10 font-fraunces">JC</span>
+          <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg ring-1 ring-white/20 bg-slate-900">
+            <video
+              src="/media/logo.mp4"
+              autoPlay
+              muted
+              playsInline
+              preload="auto"
+              onEnded={(e) => {
+                const v = e.currentTarget;
+                v.pause();
+                v.currentTime = v.duration;
+              }}
+              className="w-full h-full object-cover"
+            />
           </div>
           <span className="font-fraunces font-bold text-xl tracking-tight text-midnight-slate">
             JC Arbitrations
