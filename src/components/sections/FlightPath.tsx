@@ -49,7 +49,7 @@ export function FlightPath() {
   const lineHeight = useTransform(scrollYProgress, [0.1, 0.9], ['0%', '100%']);
 
   return (
-    <section id="process" className="py-16 bg-slate-50 relative overflow-hidden" ref={containerRef}>
+    <section id="process" className="py-16 bg-slate-100 relative overflow-hidden" ref={containerRef}>
       {/* Background Decor */}
       <div className="absolute inset-0 z-0 pointer-events-none">
          <motion.div 
