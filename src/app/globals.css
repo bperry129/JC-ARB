@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-midnight-slate: #0F172A;
+  --color-recovery-teal: #0D9488;
+  --color-stone-gray: #F1F5F9;
+  --color-coral-focus: #F43F5E;
+  --color-mint-growth: #10B981;
+
+  /* Fonts */
+  --font-inter: var(--font-inter);
+  --font-fraunces: var(--font-fraunces);
+}
+
+/* Utilities */
+@layer utilities {
+  .glass-panel {
+    @apply bg-white/70 backdrop-blur-xl border border-white/50;
+  }
+  
+  .dark-glass-panel {
+    @apply bg-slate-900/70 backdrop-blur-xl border border-white/10;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-midnight-slate to-recovery-teal;
+  }
+}
+
+/* Base styles */
+:root {
+  --background: #FFFFFF;
+  --foreground: #0F172A;
+  
+  --flight-path-draw: 2000ms ease-out forwards;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-fraunces), serif;
+}
+
+@keyframes drawLine {
+  to { stroke-dashoffset: 0; }
+}
+
+.flight-path-animated {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawLine 2.5s ease-out forwards;
+}
