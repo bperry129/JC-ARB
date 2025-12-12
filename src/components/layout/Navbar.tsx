@@ -60,19 +60,22 @@ export function Navbar() {
 
       {/* MOBILE MENU */}
       {mobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-white border-b border-slate-200 p-4 md:hidden shadow-xl animate-in slide-in-from-top-2">
-          <div className="flex flex-col gap-4">
-            {navLinks.map((link) => (
+        <div className="fixed inset-0 top-20 z-40 bg-white md:hidden">
+          <div className="flex flex-col gap-6 p-8 h-full overflow-y-auto">
+            {navLinks.map((link, i) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-lg font-medium text-slate-900"
+                className="text-2xl font-bold text-slate-900 border-b border-slate-100 pb-4"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
               </Link>
             ))}
-            <Button className="w-full">Get Revenue Analysis</Button>
+            <a href="#" className="flex flex-col gap-2 mt-4 p-6 bg-slate-50 rounded-2xl border border-slate-100">
+               <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">Ready to recover?</span>
+               <span className="text-xl font-bold text-recovery-teal">Get Your Free Analysis &rarr;</span>
+            </a>
           </div>
         </div>
       )}

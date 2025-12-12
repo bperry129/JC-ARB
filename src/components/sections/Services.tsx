@@ -64,9 +64,10 @@ export function Services() {
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
+              whileHover={{ y: -5 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300 group"
             >
               <div className="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center text-midnight-slate group-hover:bg-recovery-teal group-hover:text-white transition-colors mb-6">
                 <service.icon size={28} />
