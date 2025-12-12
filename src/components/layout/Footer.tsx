@@ -7,7 +7,11 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-white font-fraunces text-2xl mb-6">JC Arbitrations</h3>
+            <img
+              src="/media/logo.png"
+              alt="JC Arbitrations"
+              className="h-14 w-auto mb-6"
+            />
             <p className="max-w-sm mb-6">
               The premier IDR revenue recovery partner for out-of-network providers. We fight the insurance bureaucracy so you can focus on patient care.
             </p>
@@ -42,6 +46,12 @@ export function Footer() {
         
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <p>© {new Date().getFullYear()} JC Arbitrations, LLC. All rights reserved.</p>
+          <p className="text-slate-500">
+            Website design by{' '}
+            <a href="mailto:bperry129@gmail.com" className="hover:text-white underline underline-offset-4">
+              Brad Perry
+            </a>
+          </p>
           <div className="flex gap-6">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
