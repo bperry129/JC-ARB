@@ -38,6 +38,28 @@ const services = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2, // Small delay to prevent initial flicker
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      duration: 0.5
+    } 
+  },
+};
+
 export function Services() {
   return (
     <section id="services" className="py-24 bg-slate-50">
@@ -58,15 +80,18 @@ export function Services() {
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }} // Trigger earlier
+        >
           {services.map((service, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              variants={itemVariants}
               whileHover={{ y: -5 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
               className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-shadow duration-300 group"
             >
               <div className="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center text-midnight-slate group-hover:bg-recovery-teal group-hover:text-white transition-colors mb-6">
@@ -83,7 +108,7 @@ export function Services() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
         
         <div className="mt-16 text-center">
            <Button size="lg" variant="outline">Explore All Services</Button>

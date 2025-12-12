@@ -13,6 +13,25 @@ const specialties = [
   { name: 'Emergency Med', icon: HeartPulse, desc: 'ER & Trauma Groups' },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.5 } 
+  },
+};
+
 export function WhoWeServe() {
   return (
     <section id="clients" className="py-24 bg-midnight-slate text-white relative overflow-hidden">
@@ -39,14 +58,17 @@ export function WhoWeServe() {
             </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+        >
           {specialties.map((spec, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.05, ease: "easeOut" }}
+              variants={itemVariants}
               className="group relative p-6 rounded-xl bg-gradient-to-br from-slate-800/80 to-slate-900/80 border border-slate-700/50 hover:border-recovery-teal/50 transition-all duration-300"
             >
                {/* Hover Glow */}
@@ -67,7 +89,7 @@ export function WhoWeServe() {
                </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
