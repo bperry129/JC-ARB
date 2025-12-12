@@ -49,20 +49,42 @@ export function FlightPath() {
   const lineHeight = useTransform(scrollYProgress, [0.1, 0.9], ['0%', '100%']);
 
   return (
-    <section id="process" className="py-16 bg-slate-100 relative overflow-hidden" ref={containerRef}>
-      {/* Background Decor */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
+    <section id="process" className="py-16 bg-slate-50 relative overflow-hidden" ref={containerRef}>
+      {/* Background Decor - Made Obvious */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+         {/* Grid Pattern */}
+         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+         
+         {/* Stronger Blobs */}
          <motion.div 
-           animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
-           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-           className="absolute top-20 left-10 w-96 h-96 bg-teal-100 rounded-full blur-3xl opacity-30 mix-blend-multiply"
+           animate={{ 
+             x: [0, 100, 0], 
+             y: [0, -50, 0],
+             scale: [1, 1.2, 1],
+           }}
+           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+           className="absolute top-0 left-0 w-[500px] h-[500px] bg-teal-300/30 rounded-full blur-[100px]"
          />
          <motion.div 
-           animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
-           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-           className="absolute bottom-40 right-10 w-[500px] h-[500px] bg-slate-200 rounded-full blur-3xl opacity-30 mix-blend-multiply"
+           animate={{ 
+             x: [0, -100, 0], 
+             y: [0, 50, 0],
+             scale: [1, 1.5, 1], 
+           }}
+           transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 2 }}
+           className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-300/30 rounded-full blur-[120px]"
          />
-         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20" />
+         
+         {/* Floating Particles */}
+         {[...Array(5)].map((_, i) => (
+            <motion.div
+               key={i}
+               className="absolute w-2 h-2 bg-midnight-slate/20 rounded-full"
+               initial={{ x: Math.random() * 1000, y: Math.random() * 1000 }}
+               animate={{ y: [0, -100, 0], opacity: [0, 1, 0] }}
+               transition={{ duration: 5 + i, repeat: Infinity, ease: "easeInOut" }}
+            />
+         ))}
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
