@@ -15,10 +15,6 @@ const faqs = [
     answer: "We typically operate on a contingency or hybrid model, meaning our success is directly aligned with your recovery. We audit your claims first to ensure they are viable for arbitration before filing."
   },
   {
-    question: "What is your success rate in federal IDR?",
-    answer: "While industry averages fluctuate, our strategic 'batching' and clinical documentation arguments consistently outperform standard submissions. We settle over 60% of cases before they even reach the arbitrator, saving you administrative fees."
-  },
-  {
     question: "Can you handle existing backlogs of denied claims?",
     answer: "Yes. We specialize in retrospective audits. We can review claims from the past 12-24 months (depending on state/federal statutes of limitations) to identify recoverable revenue you may have written off."
   },
