@@ -106,8 +106,8 @@ export function Services() {
               whileHover={{ y: -8, scale: 1.02 }}
               className="group relative"
             >
-              {/* Gradient Border Effect */}
-              <div className={`absolute -inset-0.5 bg-gradient-to-r ${service.gradient} rounded-2xl opacity-0 group-hover:opacity-100 blur transition duration-500`} />
+              {/* Subtle Gradient Border Effect */}
+              <div className={`absolute -inset-0.5 bg-gradient-to-r ${service.gradient} rounded-2xl opacity-0 group-hover:opacity-20 blur-sm transition duration-500`} />
               
               {/* Card Content */}
               <div className="relative h-full bg-white p-8 rounded-2xl border border-slate-200/50 shadow-lg shadow-slate-200/50 group-hover:shadow-2xl group-hover:shadow-teal-100/50 transition-all duration-300 overflow-hidden">
@@ -125,7 +125,7 @@ export function Services() {
                 </div>
 
                 {/* Content */}
-                <h4 className={`relative text-xl font-bold text-midnight-slate mb-3 group-hover:bg-gradient-to-r group-hover:${service.gradient} group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300`}>
+                <h4 className="relative text-xl font-bold text-midnight-slate mb-3 transition-colors duration-300">
                   {service.title}
                 </h4>
                 <p className="relative text-slate-600 leading-relaxed mb-6 text-sm">
