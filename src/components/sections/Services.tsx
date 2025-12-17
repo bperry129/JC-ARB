@@ -2,39 +2,34 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Gavel, AlertCircle, FileSearch, Handshake, Map, Scale } from 'lucide-react';
+import { Gavel, AlertCircle, FileSearch, Handshake, Map } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
 const services = [
   {
     title: 'Federal IDR Filing',
-    desc: 'Expert navigation of the federal portal. We construct the "Batched" and "Single" dispute packages that win.',
+    desc: 'We handle the federal dispute process end-to-end—precisely, compliantly, and with a relentless focus on getting you paid. Turning a complex federal process into predictable reimbursement.',
     icon: Gavel,
   },
   {
     title: 'Denial Management',
-    desc: 'We don’t just accept "Not Medically Necessary". We fight clinical and administrative denials with coding expertise.',
+    desc: 'We don\'t just track claims — we resolve them. Our denial management and AR claims services are designed to recover revenue, reduce write-offs, and keep your cash flow steady.',
     icon: AlertCircle,
   },
   {
     title: 'Underpayment Audits',
-    desc: 'Retrospective analysis of your past 12-24 months of claims to find revenue left on the table.',
+    desc: 'At JC Arbitrations, we streamline the entire revenue cycle so providers can maximize collections and minimize administrative burden. Our RCM services cover every step from patient intake to final payment',
     icon: FileSearch,
   },
   {
-    title: 'Contract Consulting',
-    desc: 'Data-driven support for negotiating in-network rates or strategic out-of-network positioning.',
+    title: 'Out-of-Network Negotiations',
+    desc: 'We specialize in negotiating fair payments for out-of-network claims. Our goal is to protect your revenue while reducing the stress of payer disputes',
     icon: Handshake,
   },
   {
-    title: 'State-Specific Resolution',
-    desc: 'Navigation of complex state "surprise bill" laws in NY, FL, TX, CA, and beyond.',
+    title: '🗽 New York State IDR Filings',
+    desc: 'We file New York State Independent Dispute Resolution (IDR) cases on your behalf. Under New York\'s balance billing protections, providers can challenge out-of-network payment disputes through the state\'s IDR process. We manage the entire filing so you can focus on patient care.',
     icon: Map,
-  },
-  {
-    title: 'Litigation Support',
-    desc: 'When arbitration fails, we prepare the comprehensive administrative record for legal counsel.',
-    icon: Scale,
   },
 ];
 
@@ -44,7 +39,7 @@ const containerVariants = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.2, // Small delay to prevent initial flicker
+      delayChildren: 0.2,
     },
   },
 };
@@ -85,7 +80,7 @@ export function Services() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }} // Trigger earlier
+          viewport={{ once: true, margin: "-100px" }}
         >
           {services.map((service, i) => (
             <motion.div

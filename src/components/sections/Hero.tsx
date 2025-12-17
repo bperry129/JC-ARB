@@ -92,19 +92,9 @@ export function Hero() {
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
              transition={{ delay: 1 }}
-             className="pt-8 flex items-center gap-8 text-slate-400 text-sm font-medium"
+             className="pt-8"
           >
-             <div className="flex -space-x-3">
-               {[1,2,3,4].map(i => (
-                 <div key={i} className="w-10 h-10 rounded-full bg-slate-800 border-2 border-midnight-slate flex items-center justify-center text-xs">
-                     <span className="opacity-50">Dr</span>
-                 </div>
-               ))}
-               <div className="w-10 h-10 rounded-full bg-slate-700 border-2 border-midnight-slate flex items-center justify-center text-xs">
-                 +200
-               </div>
-             </div>
-             <p>Trusted by 200+ Practices</p>
+             <p className="text-slate-400 text-sm font-medium">Focused on Accuracy, Compliance, and Outcomes</p>
           </motion.div>
         </div>
 
