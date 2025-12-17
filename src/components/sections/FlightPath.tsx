@@ -2,38 +2,50 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { FileSearch, Scale, Gavel, Handshake, CheckCircle2 } from 'lucide-react';
+import { Stethoscope, FileText, MessageSquare, Gavel, Users, FileCheck, CheckCircle2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const steps = [
   {
     id: 1,
-    title: 'Intake & Eligibility',
-    desc: 'We ingest your claims data and instantly verify No Surprises Act eligibility against the QPA.',
-    icon: FileSearch,
+    title: 'Services Rendered',
+    desc: 'Patient receives care from an out-of-network provider.',
+    icon: Stethoscope,
   },
   {
     id: 2,
-    title: 'Underpayment Detection',
-    desc: 'Our algorithms identify claims paid below the median in-network rate or disallowed entirely.',
-    icon: Scale,
+    title: 'Initial Payment or Denial',
+    desc: 'Within 30 days, the payer must issue either a payment or a denial.',
+    icon: FileText,
   },
   {
     id: 3,
-    title: 'IDR Filing Strategy',
-    desc: 'We bundle claims strategically to minimize fees and maximize the "batched" argument strength.',
-    icon: Gavel,
+    title: 'Open Negotiation (30 Days)',
+    desc: 'If the payment is unsatisfactory, the provider can initiate a 30-day negotiation window with the payer.',
+    icon: MessageSquare,
   },
   {
     id: 4,
-    title: 'Negotiation Window',
-    desc: 'Our liaisons engage the payer directly. 60% of our cases settle favorably before arbitration.',
-    icon: Handshake,
+    title: 'IDR Initiation (4 Days)',
+    desc: 'If no agreement is reached, either party has 4 business days to initiate the Federal IDR process.',
+    icon: Gavel,
   },
   {
     id: 5,
-    title: 'Payment Posting',
-    desc: 'The final decision is enforced. We track the check until it hits your bank account.',
+    title: 'IDR Entity Selection (3 Days)',
+    desc: 'Both parties must agree on a certified IDR entity within 3 business days.',
+    icon: Users,
+  },
+  {
+    id: 6,
+    title: 'Best Offer Submission (10 Days)',
+    desc: 'Each side submits a final payment offer and supporting documentation.',
+    icon: FileCheck,
+  },
+  {
+    id: 7,
+    title: 'Arbitrator Decision & Payment (30 Days)',
+    desc: 'The IDR entity selects one offer. The losing party pays the arbitration fee, and the payer has 30 days to issue payment.',
     icon: CheckCircle2,
   },
 ];
@@ -50,7 +62,7 @@ export function FlightPath() {
 
   return (
     <section id="process" className="py-16 bg-slate-50 relative overflow-hidden" ref={containerRef}>
-      {/* Background Decor - Made Obvious */}
+      {/* Background Decor */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
          {/* Grid Pattern */}
          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
@@ -89,9 +101,9 @@ export function FlightPath() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-           <h2 className="text-3xl md:text-5xl font-bold font-fraunces text-midnight-slate mb-4">The Claims-to-Payment Workflow</h2>
-           <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-             A structured, precision-driven workflow that moves claims efficiently from submission to reimbursement.
+           <h2 className="text-3xl md:text-5xl font-bold font-fraunces text-midnight-slate mb-4">Federal IDR – Step-by-Step Process</h2>
+           <p className="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
+             When an out-of-network claim is underpaid or denied, JC Arbitrations helps you navigate the Federal IDR process under the No Surprises Act. Here's how it works:
            </p>
         </div>
 
