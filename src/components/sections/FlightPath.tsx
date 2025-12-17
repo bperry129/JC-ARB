@@ -89,9 +89,9 @@ export function FlightPath() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-           <h2 className="text-3xl md:text-5xl font-bold font-fraunces text-midnight-slate mb-4">The Revenue Flight Path</h2>
+           <h2 className="text-3xl md:text-5xl font-bold font-fraunces text-midnight-slate mb-4">The Claims-to-Payment Workflow</h2>
            <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-             A precision-engineered workflow designed to move stuck claims from "Denied" to "Paid".
+             A structured, precision-driven workflow that moves claims efficiently from submission to reimbursement.
            </p>
         </div>
 
