@@ -5,8 +5,8 @@ export function Footer() {
   return (
     <footer className="bg-gradient-to-b from-white to-slate-50 text-slate-600 py-20 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          <div className="col-span-1 md:col-span-2">
+        <div className="grid md:grid-cols-2 gap-12 mb-12">
+          <div>
             <img
               src="/media/logo.png"
               alt="JC Arbitrations"
@@ -23,15 +23,17 @@ export function Footer() {
             </div>
           </div>
           
-          <div>
-            <h4 className="text-white font-bold mb-4">Quick Links</h4>
-            <ul className="space-y-3">
-              <li><Link href="/#services" className="hover:text-recovery-teal transition-colors">Services</Link></li>
-              <li><Link href="/#process" className="hover:text-recovery-teal transition-colors">The Process</Link></li>
-              <li><Link href="/#clients" className="hover:text-recovery-teal transition-colors">Who We Serve</Link></li>
-              <li><Link href="/#resources" className="hover:text-recovery-teal transition-colors">Resources</Link></li>
-              <li><Link href="/contact" className="hover:text-recovery-teal transition-colors">Contact</Link></li>
-            </ul>
+          <div className="flex justify-end">
+            <div>
+              <h4 className="text-white font-bold mb-4">Quick Links</h4>
+              <ul className="space-y-3 text-right">
+                <li><Link href="/#services" className="hover:text-recovery-teal transition-colors">Services</Link></li>
+                <li><Link href="/#process" className="hover:text-recovery-teal transition-colors">The Process</Link></li>
+                <li><Link href="/#clients" className="hover:text-recovery-teal transition-colors">Who We Serve</Link></li>
+                <li><Link href="/#resources" className="hover:text-recovery-teal transition-colors">Resources</Link></li>
+                <li><Link href="/contact" className="hover:text-recovery-teal transition-colors">Contact</Link></li>
+              </ul>
+            </div>
           </div>
         </div>
         

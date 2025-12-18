@@ -45,7 +45,6 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Button size="sm" className="shadow-lg shadow-recovery-teal/20">Get Revenue Analysis</Button>
         </div>
 
         {/* MOBILE MENU TOGGLE */}

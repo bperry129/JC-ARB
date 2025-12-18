@@ -80,9 +80,11 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Button size="lg" className="gap-2">
-              Assess Your Potential <ChevronRight className="w-4 h-4" />
-            </Button>
+            <a href="/contact">
+              <Button size="lg" className="gap-2">
+                Assess Your Potential <ChevronRight className="w-4 h-4" />
+              </Button>
+            </a>
             <Button variant="outline" size="lg" className="border-slate-700 text-white hover:bg-slate-800 hover:border-slate-600">
               View The Process
             </Button>
