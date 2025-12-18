@@ -136,11 +136,11 @@ export function Hero() {
                   
                   <div className="space-y-3">
                       <div className="flex items-center justify-between text-sm py-2 border-b border-slate-800">
-                          <span className="text-slate-400">Claim #8492</span>
+                          <span className="text-slate-400">Claim #<span className="blur-sm select-none">20248492</span></span>
                           <span className="text-emerald-400 font-medium">+$58,991.92</span>
                       </div>
                       <div className="flex items-center justify-between text-sm py-2 border-b border-slate-800">
-                          <span className="text-slate-400">Claim #8470</span>
+                          <span className="text-slate-400">Claim #<span className="blur-sm select-none">20248470</span></span>
                           <span className="text-emerald-400 font-medium">+$32,110.15</span>
                       </div>
                   </div>
