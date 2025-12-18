@@ -70,7 +70,7 @@ export function Hero() {
                </span>
              </h1>
              <p className="text-lg lg:text-xl text-slate-300 max-w-lg leading-relaxed">
-               Specialized IDR representation and revenue recovery for out-of-network providers. We turn friction into flow.
+               Specialized IDR representation and revenue recovery for out-of-network providers. A clear path through the federal IDR process.
              </p>
           </motion.div>
 
@@ -103,25 +103,25 @@ export function Hero() {
            initial={{ opacity: 0, scale: 0.95, y: 40 }}
            animate={{ opacity: 1, scale: 1, y: 0 }}
            transition={{ duration: 1, delay: 0.1, ease: "circOut" }}
-           className="hidden lg:block relative"
+           className="relative"
         >
            {/* Abstract Float Animation */}
            <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
            >
-              <div className="relative bg-slate-900/40 backdrop-blur-2xl border border-slate-700/50 rounded-2xl p-6 shadow-2xl shadow-teal-900/20 max-w-md ml-auto transform rotate-y-12 perspective-1000">
+              <div className="relative bg-slate-900/40 backdrop-blur-2xl border border-slate-700/50 rounded-2xl p-6 shadow-2xl shadow-teal-900/20 max-w-md lg:ml-auto">
                   <div className="flex items-center justify-between mb-6">
                       <div>
-                          <p className="text-slate-400 text-xs uppercase tracking-wider">Total Recovered</p>
-                          <h3 className="text-3xl font-bold text-white mt-1">$14,204,050</h3>
+                          <p className="text-slate-400 text-xs uppercase tracking-wider">Your Total Recovered</p>
+                          <h3 className="text-2xl md:text-3xl font-bold text-white mt-1">$1,312,655.79</h3>
                       </div>
                       <div className="w-12 h-12 bg-teal-500/20 rounded-full flex items-center justify-center">
                           <ExternalLink className="text-teal-400" size={20} />
                       </div>
                   </div>
                   
-                  {/* Fake Chart Lines */}
+                  {/* Chart Lines */}
                   <div className="h-32 w-full flex items-end gap-2 mb-6">
                       {[30, 45, 35, 60, 50, 70, 85].map((h, i) => (
                           <motion.div 
@@ -137,11 +137,11 @@ export function Hero() {
                   <div className="space-y-3">
                       <div className="flex items-center justify-between text-sm py-2 border-b border-slate-800">
                           <span className="text-slate-400">Claim #8492</span>
-                          <span className="text-emerald-400 font-medium">+$4,500 Recovered</span>
+                          <span className="text-emerald-400 font-medium">+$58,991.92</span>
                       </div>
                       <div className="flex items-center justify-between text-sm py-2 border-b border-slate-800">
-                          <span className="text-slate-400">Claim #1102</span>
-                          <span className="text-emerald-400 font-medium">+$2,150 Recovered</span>
+                          <span className="text-slate-400">Claim #8470</span>
+                          <span className="text-emerald-400 font-medium">+$32,110.15</span>
                       </div>
                   </div>
               </div>
