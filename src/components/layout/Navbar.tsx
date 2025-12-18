@@ -15,6 +15,7 @@ export function Navbar() {
     { name: 'The Process', href: '#process' },
     { name: 'Who We Serve', href: '#clients' },
     { name: 'Resources', href: '#resources' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
