@@ -133,7 +133,7 @@ export function Contact() {
                   <div>
                     <p className="text-slate-400 text-sm mb-1">Serving Providers</p>
                     <p className="text-white text-lg font-medium">
-                      Nationwide
+                      New York
                     </p>
                   </div>
                 </div>

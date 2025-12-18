@@ -24,22 +24,13 @@ export function Footer() {
           </div>
           
           <div>
-            <h4 className="text-white font-bold mb-4">Services</h4>
+            <h4 className="text-white font-bold mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              <li><Link href="#" className="hover:text-white transition-colors">Federal IDR Filing</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Denial Management</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Underpayment Audits</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Contract Consulting</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="text-white font-bold mb-4">Company</h4>
-            <ul className="space-y-3">
-              <li><Link href="#" className="hover:text-white transition-colors">Who We Serve</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Our Process</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Resources</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact Us</Link></li>
+              <li><Link href="#services" className="hover:text-recovery-teal transition-colors">Services</Link></li>
+              <li><Link href="#process" className="hover:text-recovery-teal transition-colors">The Process</Link></li>
+              <li><Link href="#clients" className="hover:text-recovery-teal transition-colors">Who We Serve</Link></li>
+              <li><Link href="#resources" className="hover:text-recovery-teal transition-colors">Resources</Link></li>
+              <li><Link href="/contact" className="hover:text-recovery-teal transition-colors">Contact</Link></li>
             </ul>
           </div>
         </div>
@@ -53,8 +44,8 @@ export function Footer() {
             </a>
           </p>
           <div className="flex gap-6">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy-policy" className="hover:text-recovery-teal transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-recovery-teal transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
