@@ -70,10 +70,6 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <a href="#" className="flex flex-col gap-2 mt-4 p-6 bg-slate-50 rounded-2xl border border-slate-100">
-               <span className="text-sm font-bold text-slate-500 uppercase tracking-widest">Ready to recover?</span>
-               <span className="text-xl font-bold text-recovery-teal">Get Your Free Analysis &rarr;</span>
-            </a>
           </div>
         </div>
       )}

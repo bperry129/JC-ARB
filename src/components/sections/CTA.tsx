@@ -13,11 +13,10 @@ export function CTA() {
         <p className="text-xl text-slate-300 mb-10 leading-relaxed">
           Every day a claim sits in limbo is a day you aren't being compensated for your expertise. Let's start the recovery process today.
         </p>
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-           <Button size="lg" className="px-8 text-lg">Schedule Consultation</Button>
-           <Button variant="outline" size="lg" className="border-slate-600 text-white hover:bg-slate-800 text-lg">
-             Upload a Sample Batch
-           </Button>
+        <div className="flex justify-center">
+           <a href="/contact">
+             <Button size="lg" className="px-8 text-lg">Get Started Today</Button>
+           </a>
         </div>
       </div>
     </section>

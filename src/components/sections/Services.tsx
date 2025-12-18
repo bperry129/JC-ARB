@@ -144,9 +144,6 @@ export function Services() {
           ))}
         </motion.div>
         
-        <div className="mt-16 text-center">
-           <Button size="lg" variant="outline">Explore All Services</Button>
-        </div>
       </div>
     </section>
   );

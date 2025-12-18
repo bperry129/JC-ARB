@@ -23,13 +23,18 @@ export function Footer() {
             </div>
           </div>
           
-          <div className="flex justify-end">
+          <div className="flex justify-end gap-12">
             <div>
-              <h4 className="text-white font-bold mb-4">Quick Links</h4>
+              <h4 className="text-white font-bold mb-4 text-right">Quick Links</h4>
               <ul className="space-y-3 text-right">
                 <li><Link href="/#services" className="hover:text-recovery-teal transition-colors">Services</Link></li>
                 <li><Link href="/#process" className="hover:text-recovery-teal transition-colors">The Process</Link></li>
                 <li><Link href="/#clients" className="hover:text-recovery-teal transition-colors">Who We Serve</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-bold mb-4 text-right">More</h4>
+              <ul className="space-y-3 text-right">
                 <li><Link href="/#resources" className="hover:text-recovery-teal transition-colors">Resources</Link></li>
                 <li><Link href="/contact" className="hover:text-recovery-teal transition-colors">Contact</Link></li>
               </ul>
