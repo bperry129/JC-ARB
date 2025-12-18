@@ -26,10 +26,10 @@ export function Footer() {
           <div>
             <h4 className="text-white font-bold mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              <li><Link href="#services" className="hover:text-recovery-teal transition-colors">Services</Link></li>
-              <li><Link href="#process" className="hover:text-recovery-teal transition-colors">The Process</Link></li>
-              <li><Link href="#clients" className="hover:text-recovery-teal transition-colors">Who We Serve</Link></li>
-              <li><Link href="#resources" className="hover:text-recovery-teal transition-colors">Resources</Link></li>
+              <li><Link href="/#services" className="hover:text-recovery-teal transition-colors">Services</Link></li>
+              <li><Link href="/#process" className="hover:text-recovery-teal transition-colors">The Process</Link></li>
+              <li><Link href="/#clients" className="hover:text-recovery-teal transition-colors">Who We Serve</Link></li>
+              <li><Link href="/#resources" className="hover:text-recovery-teal transition-colors">Resources</Link></li>
               <li><Link href="/contact" className="hover:text-recovery-teal transition-colors">Contact</Link></li>
             </ul>
           </div>
