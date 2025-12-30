@@ -49,8 +49,14 @@ export function Navbar() {
 
         {/* MOBILE MENU TOGGLE */}
         <button
-          className="md:hidden p-2 text-midnight-slate hover:bg-slate-100 rounded-full transition-colors"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          type="button"
+          className="md:hidden p-2 text-midnight-slate hover:bg-slate-100 rounded-full transition-colors z-50"
+          onClick={(e) => {
+            e.preventDefault();
+            console.log('Menu clicked, current state:', mobileMenuOpen);
+            setMobileMenuOpen(!mobileMenuOpen);
+          }}
+          aria-label="Toggle mobile menu"
         >
           {mobileMenuOpen ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
         </button>
