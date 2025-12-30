@@ -26,11 +26,11 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
         {/* LOGO */}
-        <Link href="/" className="flex items-center group relative z-50">
+        <Link href="/" className="flex items-center group">
           <img
             src="/media/logo.png"
             alt="JC Arbitrations"
-            className="h-20 md:h-24 w-auto object-contain transition-transform group-hover:scale-105"
+            className="h-16 md:h-18 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>
 

@@ -39,8 +39,8 @@ export function Footer() {
                 <Phone className="w-5 h-5 text-recovery-teal flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="text-xs text-slate-500 mb-1">Phone</p>
-                  <a href="tel:631-601-5219" className="text-slate-300 hover:text-recovery-teal transition-colors">
-                    631-601-5219
+                  <a href="tel:516-242-5834" className="text-slate-300 hover:text-recovery-teal transition-colors">
+                    516-242-5834
                   </a>
                 </div>
               </div>
