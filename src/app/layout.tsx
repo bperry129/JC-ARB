@@ -18,6 +18,15 @@ const merriweather = Merriweather({
 export const metadata: Metadata = {
   title: 'JC Arbitrations | Federal IDR & Revenue Recovery',
   description: 'Specialized IDR representation and revenue recovery for out-of-network providers under the No Surprises Act.',
+  icons: {
+    icon: [
+      { url: '/favicon.png', type: 'image/png' },
+      { url: '/media/logo.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/media/logo.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
