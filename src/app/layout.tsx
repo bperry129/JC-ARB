@@ -36,6 +36,40 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Statcounter Analytics */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              var sc_project=13196258; 
+              var sc_invisible=1; 
+              var sc_security="36981cda";
+            `,
+          }}
+        />
+        <script
+          type="text/javascript"
+          src="https://www.statcounter.com/counter/counter.js"
+          async
+        />
+        <noscript>
+          <div className="statcounter">
+            <a
+              title="Web Analytics"
+              href="https://statcounter.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                className="statcounter"
+                src="https://c.statcounter.com/13196258/0/36981cda/1/"
+                alt="Web Analytics"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </a>
+          </div>
+        </noscript>
+      </head>
       <body className={`${inter.variable} ${merriweather.variable} antialiased bg-slate-50 text-slate-900`}>
         {children}
       </body>
