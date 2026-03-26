@@ -15,28 +15,12 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Use Netlify's recommended AJAX submission method
+  // This is a simplified approach that was working before
+  // We're not preventing the default form submission
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    // We don't prevent default - let the form submit naturally to Netlify
+    // Just manage UI state for feedback
     setIsSubmitting(true);
-    
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-    
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString()
-    })
-      .then(() => {
-        // Success - redirect to success page
-        window.location.href = "/success";
-      })
-      .catch(error => {
-        console.error("Error submitting form:", error);
-        setIsSubmitting(false);
-        alert("There was an error submitting your message. Please try again or email us directly at info@jcarbitrations.com");
-      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -174,7 +158,6 @@ export function Contact() {
               action="/success"
               data-netlify="true" 
               netlify-honeypot="bot-field"
-              onSubmit={handleSubmit}
               className="bg-white rounded-2xl p-8 shadow-2xl"
             >
               {/* Netlify form fields */}
