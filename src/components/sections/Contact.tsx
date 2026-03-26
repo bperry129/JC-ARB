@@ -16,42 +16,20 @@ export function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    // Netlify will handle the form submission
+    // This function is just for UI state management
     setIsSubmitting(true);
-
-    try {
-      // Send form data to our API route
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit form');
-      }
-
-      const data = await response.json();
-      
-      // Open the mailto link
-      if (data.mailtoUrl) {
-        window.location.href = data.mailtoUrl;
-      }
-
-      // Show success message
+    
+    // We'll show the success message after a short delay
+    // to simulate the form submission process
+    setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({ name: '', email: '', phone: '', message: '' });
       
       // Reset success message after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setIsSubmitting(false);
-      alert('There was an error submitting your message. Please try again or email us directly at info@jcarbitrations.com');
-    }
+    }, 1000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -183,7 +161,19 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8 shadow-2xl">
+            <form 
+              name="contact" 
+              method="POST" 
+              data-netlify="true" 
+              netlify-honeypot="bot-field"
+              onSubmit={handleSubmit} 
+              className="bg-white rounded-2xl p-8 shadow-2xl"
+            >
+              {/* Netlify form fields */}
+              <input type="hidden" name="form-name" value="contact" />
+              <div hidden>
+                <input name="bot-field" />
+              </div>
               <div className="space-y-6">
                 {/* Name */}
                 <div>
