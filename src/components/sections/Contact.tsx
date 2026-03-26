@@ -3,27 +3,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, Send, CheckCircle2, MapPin } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // No handleSubmit function - let the form submit naturally to Netlify
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }));
-  };
-
   return (
     <section id="contact" className="relative py-24 bg-gradient-to-br from-midnight-slate via-slate-900 to-midnight-slate overflow-hidden">
       {/* Background Elements */}
@@ -146,95 +127,77 @@ export function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form 
-              name="contact" 
-              method="POST" 
-              action="/success"
-              data-netlify="true"
-              className="bg-white rounded-2xl p-8 shadow-2xl"
-            >
-              {/* Netlify form fields */}
-              <input type="hidden" name="form-name" value="contact" />
-              <div className="space-y-6">
-                {/* Name */}
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-midnight-slate mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
-                    placeholder="John Doe"
-                  />
+            <div className="bg-white rounded-2xl p-8 shadow-2xl">
+              {/* Netlify Form - Exactly as in the documentation */}
+              <form name="contact" method="POST" action="/success" data-netlify="true">
+                <input type="hidden" name="form-name" value="contact" />
+                
+                <div className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-midnight-slate mb-2">
+                      Your Name *
+                    </label>
+                    <input 
+                      type="text" 
+                      name="name" 
+                      id="name" 
+                      required 
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
+                      placeholder="John Doe"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-midnight-slate mb-2">
+                      Your Email *
+                    </label>
+                    <input 
+                      type="email" 
+                      name="email" 
+                      id="email" 
+                      required 
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-midnight-slate mb-2">
+                      Phone Number
+                    </label>
+                    <input 
+                      type="tel" 
+                      name="phone" 
+                      id="phone" 
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
+                      placeholder="(555) 123-4567"
+                    />
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-midnight-slate mb-2">
+                      Message *
+                    </label>
+                    <textarea 
+                      name="message" 
+                      id="message" 
+                      required 
+                      rows={5}
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none"
+                      placeholder="Tell us about your needs..."
+                    ></textarea>
+                  </div>
+                  
+                  <button 
+                    type="submit" 
+                    className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-semibold py-4 px-6 rounded-xl hover:from-teal-600 hover:to-emerald-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-teal-500/30"
+                  >
+                    <Send className="w-5 h-5" />
+                    Send Message
+                  </button>
                 </div>
-
-                {/* Email */}
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-midnight-slate mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
-                    placeholder="john@example.com"
-                  />
-                </div>
-
-                {/* Phone */}
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-midnight-slate mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all"
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-midnight-slate mb-2">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none transition-all resize-none"
-                    placeholder="Tell us about your needs..."
-                  />
-                </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-semibold py-4 px-6 rounded-xl hover:from-teal-600 hover:to-emerald-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-teal-500/30"
-                >
-                  <Send className="w-5 h-5" />
-                  Send Message
-                </button>
-
-                {/* Success message will be shown on the success page */}
-              </div>
-            </form>
+              </form>
+            </div>
           </motion.div>
         </div>
       </div>
