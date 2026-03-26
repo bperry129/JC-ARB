@@ -15,17 +15,16 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    // Netlify will handle the form submission
-    // This function is just for UI state management
+  const handleSubmit = (e: React.FormEvent) => {
+    // Don't prevent default - let the form submit naturally to Netlify
+    // Just manage UI state
     setIsSubmitting(true);
     
-    // We'll show the success message after a short delay
-    // to simulate the form submission process
+    // We'll show the success message after the form submits
+    // This is just for UI feedback
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-      setFormData({ name: '', email: '', phone: '', message: '' });
       
       // Reset success message after 5 seconds
       setTimeout(() => setIsSubmitted(false), 5000);
@@ -164,9 +163,9 @@ export function Contact() {
             <form 
               name="contact" 
               method="POST" 
+              action="/success" 
               data-netlify="true" 
               netlify-honeypot="bot-field"
-              onSubmit={handleSubmit} 
               className="bg-white rounded-2xl p-8 shadow-2xl"
             >
               {/* Netlify form fields */}
