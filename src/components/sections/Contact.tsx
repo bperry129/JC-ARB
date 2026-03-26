@@ -15,13 +15,7 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // This is a simplified approach that was working before
-  // We're not preventing the default form submission
-  const handleSubmit = (e: React.FormEvent) => {
-    // We don't prevent default - let the form submit naturally to Netlify
-    // Just manage UI state for feedback
-    setIsSubmitting(true);
-  };
+  // No handleSubmit function - let the form submit naturally to Netlify
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -156,15 +150,11 @@ export function Contact() {
               name="contact" 
               method="POST" 
               action="/success"
-              data-netlify="true" 
-              netlify-honeypot="bot-field"
+              data-netlify="true"
               className="bg-white rounded-2xl p-8 shadow-2xl"
             >
               {/* Netlify form fields */}
               <input type="hidden" name="form-name" value="contact" />
-              <div hidden>
-                <input name="bot-field" />
-              </div>
               <div className="space-y-6">
                 {/* Name */}
                 <div>
@@ -236,20 +226,10 @@ export function Contact() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-semibold py-4 px-6 rounded-xl hover:from-teal-600 hover:to-emerald-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-teal-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-semibold py-4 px-6 rounded-xl hover:from-teal-600 hover:to-emerald-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-teal-500/30"
                 >
-                  {isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      Send Message
-                    </>
-                  )}
+                  <Send className="w-5 h-5" />
+                  Send Message
                 </button>
 
                 {/* Success message will be shown on the success page */}
