@@ -129,7 +129,7 @@ export function Contact() {
           >
             <div className="bg-white rounded-2xl p-8 shadow-2xl">
               {/* Netlify Form */}
-              <form name="contact" method="POST" action="/success" data-netlify="true">
+              <form name="contact" method="POST" action="/success">
                 <input type="hidden" name="form-name" value="contact" />
                 
                 <div className="space-y-6">
