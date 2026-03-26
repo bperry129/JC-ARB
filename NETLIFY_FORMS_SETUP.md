@@ -7,9 +7,12 @@ This document provides instructions on how to set up Netlify Forms with Next.js 
 Next.js applications require special handling for Netlify Forms to work properly:
 
 1. A static HTML form must exist in the public directory for Netlify to detect during build time
-2. The form in your React components should match this static form exactly
-3. The form must include a hidden input with name="form-name" and value matching the form's name
-4. After making changes to forms, a full redeploy is required
+2. This static form file should NOT be named index.html as it would override the Next.js app
+3. The form in your React components should match this static form exactly
+4. The form must include a hidden input with name="form-name" and value matching the form's name
+5. After making changes to forms, a full redeploy is required
+
+> **WARNING:** Never create an index.html file in the public directory of a Next.js app, as it will override the entire application!
 
 ## Enable Form Detection in Netlify
 
@@ -45,7 +48,7 @@ If form submissions are not appearing in your Netlify dashboard:
 
 1. Make sure form detection is enabled in Netlify
 2. **Perform a full redeploy with cache clearing** after enabling form detection
-3. Check that both the React form and the static HTML form in public/index.html have:
+3. Check that both the React form and the static HTML form in public/form-fallback.html have:
    - The same `name` attribute (in this case, "contact")
    - The `data-netlify="true"` attribute
    - A hidden input with `name="form-name"` and `value="contact"`
@@ -57,7 +60,7 @@ If form submissions are not appearing in your Netlify dashboard:
 
 For Next.js applications, these additional steps may help:
 
-1. Make sure the static HTML form in public/index.html exactly matches your React form
+1. Make sure the static HTML form in public/form-fallback.html exactly matches your React form
 2. Ensure you're not using any custom form handling that prevents the default form submission
 3. Try temporarily disabling JavaScript in your browser and submitting the form to test if the static fallback works
 4. Check if your Next.js configuration is interfering with form submissions (check next.config.js)
