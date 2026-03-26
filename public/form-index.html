@@ -5,23 +5,24 @@
 </head>
 <body>
   <!-- This is a static HTML form for Netlify to detect during build time -->
+  <!-- This file is named form-index.html to avoid breaking the site while still being detected by Netlify -->
   <form name="contact" method="POST" action="/success" data-netlify="true">
     <input type="hidden" name="form-name" value="contact" />
     <div>
-      <label for="name">Your Name *</label>
-      <input type="text" name="name" id="name" required />
+      <label for="name">Your Name</label>
+      <input type="text" name="name" id="name" />
     </div>
     <div>
-      <label for="email">Your Email *</label>
-      <input type="email" name="email" id="email" required />
+      <label for="email">Your Email</label>
+      <input type="email" name="email" id="email" />
     </div>
     <div>
       <label for="phone">Phone Number</label>
       <input type="tel" name="phone" id="phone" />
     </div>
     <div>
-      <label for="message">Message *</label>
-      <textarea name="message" id="message" required></textarea>
+      <label for="message">Message</label>
+      <textarea name="message" id="message"></textarea>
     </div>
     <button type="submit">Send Message</button>
   </form>

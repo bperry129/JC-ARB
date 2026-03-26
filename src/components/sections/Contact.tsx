@@ -128,7 +128,7 @@ export function Contact() {
             transition={{ duration: 0.6 }}
           >
             <div className="bg-white rounded-2xl p-8 shadow-2xl">
-              {/* Netlify Form - Exactly as in the documentation */}
+              {/* Netlify Form - Simplified to match static HTML exactly */}
               <form name="contact" method="POST" action="/success" data-netlify="true">
                 <input type="hidden" name="form-name" value="contact" />
                 
