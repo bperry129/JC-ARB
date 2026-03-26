@@ -16,19 +16,30 @@ export function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
-    // Don't prevent default - let the form submit naturally to Netlify
-    // Just manage UI state
+    e.preventDefault();
     setIsSubmitting(true);
-    
-    // We'll show the success message after the form submits
-    // This is just for UI feedback
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1000);
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as any).toString()
+    })
+      .then(() => {
+        setIsSubmitting(false);
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', phone: '', message: '' });
+        
+        // Reset success message after 5 seconds
+        setTimeout(() => setIsSubmitted(false), 5000);
+      })
+      .catch(error => {
+        console.error("Error submitting form:", error);
+        setIsSubmitting(false);
+        alert("There was an error submitting your message. Please try again or email us directly at info@jcarbitrations.com");
+      });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -163,9 +174,9 @@ export function Contact() {
             <form 
               name="contact" 
               method="POST" 
-              action="/success" 
               data-netlify="true" 
               netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
               className="bg-white rounded-2xl p-8 shadow-2xl"
             >
               {/* Netlify form fields */}
