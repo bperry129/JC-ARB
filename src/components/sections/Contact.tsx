@@ -15,31 +15,21 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Instead of using AJAX, we'll let the form submit naturally to Netlify
+  // This is more reliable for Netlify form detection
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+    // Don't prevent default - let the form submit naturally
+    // Just manage UI state for feedback
     setIsSubmitting(true);
-
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData as any).toString()
-    })
-      .then(() => {
-        setIsSubmitting(false);
-        setIsSubmitted(true);
-        setFormData({ name: '', email: '', phone: '', message: '' });
-        
-        // Reset success message after 5 seconds
-        setTimeout(() => setIsSubmitted(false), 5000);
-      })
-      .catch(error => {
-        console.error("Error submitting form:", error);
-        setIsSubmitting(false);
-        alert("There was an error submitting your message. Please try again or email us directly at info@jcarbitrations.com");
-      });
+    
+    // We'll show a temporary "submitting" state
+    // The actual redirect will happen when Netlify processes the form
+    setTimeout(() => {
+      setIsSubmitting(false);
+    }, 1000);
+    
+    // Note: The form will redirect to the success page after submission
+    // so we don't need to reset form data or show success message here
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -174,6 +164,7 @@ export function Contact() {
             <form 
               name="contact" 
               method="POST" 
+              action="/success"
               data-netlify="true" 
               netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
