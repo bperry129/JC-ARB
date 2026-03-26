@@ -13,18 +13,18 @@ export async function POST(request: Request) {
       );
     }
 
-    // In a production environment, you would use a service like Nodemailer, SendGrid, etc.
-    // For now, we'll just log the data and return a success response
-    console.log('Contact form submission:', {
-      to: 'info@jcarbitrations.com',
-      subject: `Contact Form Submission from ${name}`,
-      body: `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nMessage:\n${message}`
-    });
+    // Create mailto URL
+    const subject = encodeURIComponent(`Contact Form Submission from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nMessage:\n${message}`
+    );
+    const mailtoUrl = `mailto:info@jcarbitrations.com?subject=${subject}&body=${body}`;
 
-    // For demonstration purposes, we'll simulate a successful email send
-    // In production, replace this with actual email sending logic
-    
-    return NextResponse.json({ success: true });
+    // Return the mailto URL to the client
+    return NextResponse.json({ 
+      success: true,
+      mailtoUrl: mailtoUrl
+    });
   } catch (error) {
     console.error('Error processing contact form:', error);
     return NextResponse.json(

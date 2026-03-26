@@ -33,6 +33,13 @@ export function Contact() {
         throw new Error('Failed to submit form');
       }
 
+      const data = await response.json();
+      
+      // Open the mailto link
+      if (data.mailtoUrl) {
+        window.location.href = data.mailtoUrl;
+      }
+
       // Show success message
       setIsSubmitting(false);
       setIsSubmitted(true);
