@@ -15,8 +15,29 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // We're removing the handleSubmit function completely
-  // and letting the form submit naturally to Netlify
+  // Use Netlify's recommended AJAX submission method
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as any).toString()
+    })
+      .then(() => {
+        // Success - redirect to success page
+        window.location.href = "/success";
+      })
+      .catch(error => {
+        console.error("Error submitting form:", error);
+        setIsSubmitting(false);
+        alert("There was an error submitting your message. Please try again or email us directly at info@jcarbitrations.com");
+      });
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -153,6 +174,7 @@ export function Contact() {
               action="/success"
               data-netlify="true" 
               netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
               className="bg-white rounded-2xl p-8 shadow-2xl"
             >
               {/* Netlify form fields */}
@@ -231,10 +253,20 @@ export function Contact() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-semibold py-4 px-6 rounded-xl hover:from-teal-600 hover:to-emerald-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-teal-500/30"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-semibold py-4 px-6 rounded-xl hover:from-teal-600 hover:to-emerald-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-teal-500/30 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Send className="w-5 h-5" />
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      Send Message
+                    </>
+                  )}
                 </button>
 
                 {/* Success message will be shown on the success page */}
