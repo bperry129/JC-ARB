@@ -60,8 +60,9 @@ export function Footer() {
                 <div>
                   <p className="text-xs text-slate-500 mb-1">Address</p>
                   <p className="text-slate-300 text-sm leading-relaxed">
-                    447 Broadway 2nd Fl #3000<br />
-                    New York, NY 10013-2562
+                    80 Orville drive<br />
+                    ste.100<br />
+                    Bohemia, NY 11716
                   </p>
                 </div>
               </div>
