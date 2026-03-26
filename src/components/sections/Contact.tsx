@@ -150,7 +150,7 @@ export function Contact() {
               name="contact" 
               method="POST" 
               action="/success"
-              netlify
+              data-netlify="true"
               className="bg-white rounded-2xl p-8 shadow-2xl"
             >
               {/* Netlify form fields */}
