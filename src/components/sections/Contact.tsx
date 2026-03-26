@@ -15,22 +15,8 @@ export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Instead of using AJAX, we'll let the form submit naturally to Netlify
-  // This is more reliable for Netlify form detection
-  const handleSubmit = (e: React.FormEvent) => {
-    // Don't prevent default - let the form submit naturally
-    // Just manage UI state for feedback
-    setIsSubmitting(true);
-    
-    // We'll show a temporary "submitting" state
-    // The actual redirect will happen when Netlify processes the form
-    setTimeout(() => {
-      setIsSubmitting(false);
-    }, 1000);
-    
-    // Note: The form will redirect to the success page after submission
-    // so we don't need to reset form data or show success message here
-  };
+  // We're removing the handleSubmit function completely
+  // and letting the form submit naturally to Netlify
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData(prev => ({
@@ -167,7 +153,6 @@ export function Contact() {
               action="/success"
               data-netlify="true" 
               netlify-honeypot="bot-field"
-              onSubmit={handleSubmit}
               className="bg-white rounded-2xl p-8 shadow-2xl"
             >
               {/* Netlify form fields */}
@@ -246,36 +231,13 @@ export function Contact() {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  disabled={isSubmitting || isSubmitted}
-                  className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-semibold py-4 px-6 rounded-xl hover:from-teal-600 hover:to-emerald-600 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-teal-500/30"
+                  className="w-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-semibold py-4 px-6 rounded-xl hover:from-teal-600 hover:to-emerald-600 transition-all duration-300 flex items-center justify-center gap-2 shadow-lg shadow-teal-500/30"
                 >
-                  {isSubmitted ? (
-                    <>
-                      <CheckCircle2 className="w-5 h-5" />
-                      Message Sent!
-                    </>
-                  ) : isSubmitting ? (
-                    <>
-                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      Send Message
-                    </>
-                  )}
+                  <Send className="w-5 h-5" />
+                  Send Message
                 </button>
 
-                {isSubmitted && (
-                  <motion.p
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-center text-emerald-600 text-sm"
-                  >
-                    Thank you! We'll get back to you shortly.
-                  </motion.p>
-                )}
+                {/* Success message will be shown on the success page */}
               </div>
             </form>
           </motion.div>

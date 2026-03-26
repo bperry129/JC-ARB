@@ -1,6 +1,15 @@
-# Netlify Forms Setup Instructions
+# Netlify Forms Setup Instructions for Next.js
 
-This document provides instructions on how to set up Netlify Forms to ensure that contact form submissions are properly recorded and forwarded to info@jcarbitrations.com.
+This document provides instructions on how to set up Netlify Forms with Next.js to ensure that contact form submissions are properly recorded and forwarded to info@jcarbitrations.com.
+
+## Important: Next.js and Netlify Forms Considerations
+
+Next.js applications require special handling for Netlify Forms to work properly:
+
+1. A static HTML form must exist in the public directory for Netlify to detect during build time
+2. The form in your React components should match this static form exactly
+3. The form must include a hidden input with name="form-name" and value matching the form's name
+4. After making changes to forms, a full redeploy is required
 
 ## Enable Form Detection in Netlify
 
@@ -8,7 +17,7 @@ This document provides instructions on how to set up Netlify Forms to ensure tha
 2. Go to your site dashboard
 3. Click on "Forms" in the left navigation menu
 4. Click on "Enable form detection" if it's not already enabled
-5. Redeploy your site by going to the "Deploys" section and clicking "Trigger deploy" > "Deploy site"
+5. **Important:** Trigger a full redeploy by going to the "Deploys" section and clicking "Trigger deploy" > "Clear cache and deploy site"
 
 ## Configure Form Notifications
 
@@ -35,12 +44,27 @@ After deploying the site with these changes:
 If form submissions are not appearing in your Netlify dashboard:
 
 1. Make sure form detection is enabled in Netlify
-2. Verify that your site has been redeployed after enabling form detection
-3. Check that the form in your HTML has the `data-netlify="true"` attribute
-4. Ensure the form has a `name` attribute (in this case, "contact")
-5. Confirm that the form includes a hidden input with `name="form-name"` and `value="contact"`
+2. **Perform a full redeploy with cache clearing** after enabling form detection
+3. Check that both the React form and the static HTML form in public/index.html have:
+   - The same `name` attribute (in this case, "contact")
+   - The `data-netlify="true"` attribute
+   - A hidden input with `name="form-name"` and `value="contact"`
+4. Verify that the form is submitting to the correct endpoint (no custom AJAX handling)
+5. Check the browser console for any JavaScript errors during form submission
+6. Try submitting the form with the Network tab open in browser DevTools to see the request
+
+### Next.js Specific Issues
+
+For Next.js applications, these additional steps may help:
+
+1. Make sure the static HTML form in public/index.html exactly matches your React form
+2. Ensure you're not using any custom form handling that prevents the default form submission
+3. Try temporarily disabling JavaScript in your browser and submitting the form to test if the static fallback works
+4. Check if your Next.js configuration is interfering with form submissions (check next.config.js)
 
 ## Additional Resources
 
 - [Netlify Forms Documentation](https://docs.netlify.com/forms/setup/)
 - [Form Notifications Documentation](https://docs.netlify.com/forms/notifications/)
+- [Netlify Forms with Next.js](https://www.netlify.com/blog/2021/10/25/how-to-use-netlify-forms-with-next.js/)
+- [Troubleshooting Netlify Forms](https://docs.netlify.com/forms/troubleshooting/)

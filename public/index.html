@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JC Arbitrations - Contact Form</title>
+</head>
+<body>
+  <!-- 
+    This is a fallback HTML form for Netlify form detection.
+    For Next.js applications, Netlify recommends having a complete HTML form
+    in the public directory that exactly matches the form in your application.
+  -->
+  <form name="contact" method="POST" action="/success" data-netlify="true" netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="contact" />
+    <div hidden>
+      <input name="bot-field" />
+    </div>
+    <div>
+      <label for="name">Full Name *</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+    <div>
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+    <div>
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" />
+    </div>
+    <div>
+      <label for="message">Message *</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+    <button type="submit">Send Message</button>
+  </form>
+</body>
+</html>
