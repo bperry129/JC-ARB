@@ -71,6 +71,14 @@ export default function RootLayout({
         </noscript>
       </head>
       <body className={`${inter.variable} ${merriweather.variable} antialiased bg-slate-50 text-slate-900`}>
+        {/* Hidden form to ensure Netlify bot discovers the form at build time */}
+        <form name="contact" data-netlify="true" hidden>
+          <input type="hidden" name="form-name" value="contact" />
+          <input type="text" name="name" />
+          <input type="email" name="email" />
+          <input type="tel" name="phone" />
+          <textarea name="message"></textarea>
+        </form>
         {children}
       </body>
     </html>
